@@ -17,7 +17,7 @@ function printIsPalindrome(word) {
     : console.log(`"${word}" is not a palindrome.`);
 }
 
-printIsPalindrome("Madam");
+printIsPalindrome("Mad*am");
 printIsPalindrome("Top spot!");
 printIsPalindrome("Never a foot too far, even");
 printIsPalindrome("Javascript");
