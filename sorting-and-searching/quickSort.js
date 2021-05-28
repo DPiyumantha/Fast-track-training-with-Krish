@@ -2,12 +2,11 @@ function quickSort(arr) {
     if(arr.length < 2) {
       return arr;
     }
-  
-    var pivot = arr[0];
+    var pivot = arr[arr.length-1];
     var lesserArray = [];
     var greaterArray = [];
   
-    for (var i = 1; i < arr.length; i++) {
+    for (var i = 0; i < arr.length-1; i++) {
       if ( arr[i] > pivot ) {
         greaterArray.push(arr[i]);
       } else {

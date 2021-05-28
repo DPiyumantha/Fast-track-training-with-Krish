@@ -41,16 +41,17 @@ function isAnagramRec(word1, word2) {
 function printIsAnagram(word1, word2) {
   isAnagramRec(word1, word2)
     ? console.log(`Using Recursion >>> ${word1} and ${word2} are anagrams.`)
-    : console.log(`Using Recursion >>> ${word1} and ${word2} are not anagrams.`);
-    isAnagram(word1, word2)
+    : console.log(
+        `Using Recursion >>> ${word1} and ${word2} are not anagrams.`
+      );
+  isAnagram(word1, word2)
     ? console.log(`Using Iteration >>> ${word1} and ${word2} are anagrams.`)
-    : console.log(`Using Iteration >>> ${word1} and ${word2} are not anagrams.`);
+    : console.log(
+        `Using Iteration >>> ${word1} and ${word2} are not anagrams.`
+      );
 }
 
-
-printIsAnagram("Stressed", "Desserts")
-printIsAnagram("can", "cant")
-printIsAnagram("can", "car")
-printIsAnagram("rat", "tar")
-
-
+printIsAnagram("Stressed", "Desserts");
+printIsAnagram("can", "cant");
+printIsAnagram("can", "car");
+printIsAnagram("rat", "tar");
