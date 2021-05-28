@@ -1,5 +1,5 @@
 function isPalindrome(word) {
-  const regex = /[^a-zA-Z\d]/g;
+  const regex = /[^a-zA-Z\d]/;
   word = word.replace(regex, "").toLowerCase();
   let limit = Math.floor(word.length / 2);
   let isPalindrome = true;
@@ -12,13 +12,8 @@ function isPalindrome(word) {
 }
 
 function printIsPalindrome(word) {
-  isPalindrome(word)
-    ? console.log(`"${word}" is a palindrome.`)
-    : console.log(`"${word}" is not a palindrome.`);
+    if(isPalindrome(word))return `"${word}" is a palindrome.`
+    return `"${word}" is not a palindrome.`
 }
 
-printIsPalindrome("Mad*am");
-printIsPalindrome("Top spot!");
-printIsPalindrome("Never a foot too far, even");
-printIsPalindrome("Javascript");
-printIsPalindrome("Java");
+module.exports = {printIsPalindrome}
