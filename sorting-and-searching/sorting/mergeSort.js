@@ -28,4 +28,4 @@ function merge(arr1, arr2) {
   return sorted;
 }
 
-console.log(mergeSort([2, 1, 4, 3, 0]));
+module.exports = {mergeSort}

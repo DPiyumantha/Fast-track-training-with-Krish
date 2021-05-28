@@ -16,4 +16,4 @@ function quickSort(arr) {
     return quickSort(lesserArray).concat(pivot, quickSort(greaterArray));
   }
 
-  console.log(quickSort([6,5,4,2,3,1]))
+module.exports= {quickSort}

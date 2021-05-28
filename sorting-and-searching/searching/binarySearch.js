@@ -15,9 +15,5 @@ function binarySearch(arr, term) {
     return binarySearch(arr.slice(mid, arr.length), term);
   }
 }
-console.log(binarySearch([1, 2, 3, 4], 10));
-console.log(binarySearch([1, 2, 3, 4, 5], 1));
-console.log(binarySearch([1, 2, 3, 4], 2));
-console.log(binarySearch([1, 2, 3, 4, 5], 3));
-console.log(binarySearch([1, 2, 3, 4], 4));
+module.exports={binarySearch}
 

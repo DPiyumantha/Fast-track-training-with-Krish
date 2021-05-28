@@ -28,5 +28,4 @@ do{
     return arr;
 }
 
-console.log(bubbleSort([3,2,1,4,5,100,99]))
-console.log(bubbleSort(["z","b",3,1,"aa",3,4,"a1",100,2,1]))
+module.expports ={bubbleSort}

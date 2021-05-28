@@ -17,4 +17,4 @@ function selectionSort(arr){
 
 }
 
-console.log(selectionSort([3,2,1,4,5,100,99]))
+module.exports = {selectionSort}
