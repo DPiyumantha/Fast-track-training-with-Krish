@@ -3,7 +3,7 @@ const {printIsAnagram} =require('./anagram.js')
 const app = express();
 const port = 3000;
 app.use(express.json());
-app.get('/anagram',(req,res)=>{
+app.post('/anagram',(req,res)=>{
     //request body should contain an array with two words
     res.send(printIsAnagram(req.body[0],req.body[1]))
 })

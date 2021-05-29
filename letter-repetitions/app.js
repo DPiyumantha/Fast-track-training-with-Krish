@@ -6,11 +6,11 @@ app.use(express.json());
 
 //request body should contain an object in the form {"text":"this is a sentence or word"}
 
-app.get('/word-repetions', (req, res)=>{
+app.post('/word-repetions', (req, res)=>{
     res.send(JSON.stringify([...checkWordRepetitions(req.body.text)]));
 })
 
-app.get('/letter-repetions', (req, res)=>{
+app.post('/letter-repetions', (req, res)=>{
     res.send(JSON.stringify([...checkLetterRepetitions(req.body.text)]));
 })
 
