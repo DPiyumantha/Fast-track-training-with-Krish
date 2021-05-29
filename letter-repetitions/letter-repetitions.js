@@ -1,5 +1,5 @@
 var { map } = require("methods");
-const regex = /[^a-zA-Z\s]/g
+const regex = /[^a-zA-Z\s\d]/g
 function checkLetterRepetitions(sentence){
     sentence = sentence.replace(regex,'')
     arr=sentence.split('').filter(i=>i!=' ').map(i=>i.toLowerCase())
