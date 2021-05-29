@@ -1,15 +1,12 @@
 {
-  "name": "sorting-and-searching",
+  "name": "merge-sort",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start":"node app.js"
   },
   "author": "Dimalka",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "license": "ISC"
 }

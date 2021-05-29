@@ -1,4 +1,4 @@
-const {quickSort} = require('../sorting/quickSort')
+const {quickSort} = require('./quickSort')
 
 function binarySearch(arr, term) {
   return search(quickSort(arr),term)
