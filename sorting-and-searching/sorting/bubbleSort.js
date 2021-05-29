@@ -28,4 +28,4 @@ do{
     return arr;
 }
 
-module.expports ={bubbleSort}
+module.exports ={bubbleSort}

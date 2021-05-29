@@ -1,10 +1,10 @@
 function linearSearch(arr, searchTerm){
     for(let i=0; i<arr.length; i++){
         if(arr[i]===searchTerm){
-            return i;
+            return "Element found at "+i;
         }
     }
-    return -1;
+    return "Element not found";
 }
 
 function printResult(index){

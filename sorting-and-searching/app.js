@@ -7,7 +7,7 @@ app.use(express.json());
 app.use('/',searchRouter);
 app.use('/',sortRouter);
 
-//request body should contain an object in the form {"text":"this is a sentence or word"}
+//request body should contain an object in the form {"dataset":[1,2,3,4,5],"searchTerm:4}
 
 
 
