@@ -14,4 +14,5 @@ app.post("/palindrome", (req, res) => {
 
 app.listen(port, () => {
   console.log("Listening on port ", port);
+  console.log("Sample request body : ",'{"text":"this is a sentence or word"}');
 });

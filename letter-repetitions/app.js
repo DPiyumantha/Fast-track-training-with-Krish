@@ -15,4 +15,5 @@ app.post('/letter-repetitions', (req, res)=>{
 })
 
 
-app.listen(port,()=>{console.log("Listening on port ", port)})
+app.listen(port,()=>{console.log("Listening on port ", port);
+console.log("Sample request body : ",'{"text":"sentence"}')})

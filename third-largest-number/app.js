@@ -4,7 +4,7 @@ const getThirdLargest = require('./third-largest');
 const port = 3000;
 app.use(express.json());
 
-//request body should contain an object in the form {"dataset":[1,2,3,4,5]"}
+//request body should contain an object in the form {"dataset":[1,2,3,4,5]}
 app.post('/third-largest',(req, res)=>{
     try{res.send(getThirdLargest(req.body.dataset).toLocaleString())
     }catch(err){
@@ -13,4 +13,5 @@ app.post('/third-largest',(req, res)=>{
 })
 
 
-app.listen(port,()=>{console.log("Listening on port ", port)})
+app.listen(port,()=>{console.log("Listening on port ", port)
+console.log("Sample request body : ",'{"dataset":[1,2,3,4,5]}');})

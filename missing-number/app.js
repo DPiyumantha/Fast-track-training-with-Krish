@@ -10,4 +10,5 @@ app.post('/missing-number', (req, res)=>{
     res.send(printMissingNumber(req.body.dataset));
 })
 
-app.listen(port,()=>{console.log("Listening on port ", port)})
+app.listen(port,()=>{console.log("Listening on port ", port);
+console.log("Sample request body : ",'{"dataset":[1,2,3,4,6]}')})
