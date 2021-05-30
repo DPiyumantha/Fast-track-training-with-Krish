@@ -1,4 +1,4 @@
-module.exports=function reverseANumber(number) {
+function reverseANumber(number) {
   tempNumber = number;
   places = 0;
   result = 0;//1
@@ -16,5 +16,9 @@ module.exports=function reverseANumber(number) {
     // console.log(a);
   }
   return result;
+}
+
+module.exports=function printReversedNumber(number){
+  console.log("Reversed number for ",number," : ",reverseANumber(number))
 }
 
