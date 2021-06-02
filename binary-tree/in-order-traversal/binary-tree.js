@@ -1,5 +1,6 @@
-const Node = require("./tree-node");
-class BinaryTree {
+import Node from "./tree-node.js";
+
+export default class BinaryTree {
   constructor(key) {
     this.root = new Node(key);
   }
@@ -24,7 +25,6 @@ class BinaryTree {
     }
   };
 
-
   add = function (key) {
     this.addKey(this.root, key);
   };
@@ -36,4 +36,3 @@ class BinaryTree {
   }
 }
 
-module.exports = BinaryTree;

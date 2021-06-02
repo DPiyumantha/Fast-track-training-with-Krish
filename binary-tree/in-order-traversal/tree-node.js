@@ -1,4 +1,4 @@
-class Node{
+export default class Node{
     constructor(key){
         this.key=key;
         this.right=null;
@@ -6,4 +6,3 @@ class Node{
     }
 }
 
-module.exports=Node;

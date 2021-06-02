@@ -1,11 +1,11 @@
-const BinaryTree =require('./binary-tree')
-const inOrder = require('./in-order-traversal')
+import BinaryTree from './binary-tree.js';
+import inOrder from './in-order-traversal.js';
 
-tempArray=[]
-elementsToAdd=[4,8,2,10,1,11,3,9,7]
+const tempArray=[]
+const elementsToAdd=[6,4,8,2,10,1,11,3,9,5,7]
 
-binaryTree = new BinaryTree(6); //root --> 6
+let binaryTree = new BinaryTree(elementsToAdd.shift()); //root --> 6
 binaryTree.addAll(elementsToAdd);
-console.log("Added Order ",[6,...elementsToAdd]);
+console.log("Added Order ",elementsToAdd);
 inOrder(binaryTree.root,tempArray);
 console.log("In-order Traversal ",tempArray);
