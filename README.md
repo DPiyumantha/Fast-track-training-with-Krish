@@ -9,4 +9,5 @@ Exercise 7  : Reverse a number without using string functions<br>
 Exercise 8  : Print all leaf nodes of a binary tree<br>
 Exercise 9  : Pre-order traversal of a binary tree<br>
 Exercise 10 : In-order traversal of a binary tree<br>
-Exercise 11 : Nth fibonaaci number</p>
+Exercise 11 : Nth fibonaaci number<br>
+Exercise 12 : Extract words containing vowels from a paragraph</p>
