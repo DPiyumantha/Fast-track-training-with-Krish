@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class WordsComponent implements OnInit {
 
   userInput: string = '';
-  words: string[] = [];
+  words: string[] = []
   message: string = '';
-  vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  vowels = ["a", "e", "i", "o", "u"];
   constructor() { }
 
   ngOnInit(): void {
@@ -18,14 +18,17 @@ export class WordsComponent implements OnInit {
 
 
   sortWordsWithVowels(): void {
+    this.words = [];
     if (this.userInput.length < 1) { this.message = "Please type some text"; } else {
       this.message = '';
-      this.words = this.userInput
-      .trim()
-      .replace(/[^a-zA-Z\s\d]/g, '')
-      .split(" ")
-      .filter(word => this.isIncludingVowel(word))
-      .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+      this.words = Array.from(new Set(this.userInput
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-zA-Z\s\d]/g, '')
+        .split(" ")
+        .filter(word => this.isIncludingVowel(word))
+        .sort())
+      )
     }
   }
 
