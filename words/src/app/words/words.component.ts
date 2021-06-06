@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-words',
@@ -11,6 +13,7 @@ export class WordsComponent implements OnInit {
   words: string[] = []
   message: string = '';
   vowels = ["a", "e", "i", "o", "u"];
+
   constructor() { }
 
   ngOnInit(): void {

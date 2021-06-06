@@ -1,0 +1,22 @@
+<div class="mx-auto w-75">
+
+    <div *ngIf="result.error" class="w-100 text-center p-4 mt-4">
+        <h5 class="text-warning">{{result.errorMessage}} </h5>
+    </div>
+
+    <table class="table" *ngIf="result.words.length>0">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Words with vowels</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let word of result.words; let i=index">
+
+                <td>{{i+1}}</td>
+                <td>{{word}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

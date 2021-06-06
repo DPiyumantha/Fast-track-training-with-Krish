@@ -1,26 +1,12 @@
-<div class="">
-
-    <div class="form-group row col-3 mx-auto mt-5">
-        <h3 class="mx-auto mb-4 text-center">Words</h3>
-        <textarea class="form-control mb-1" [(ngModel)]="userInput"></textarea>
-        <button class="btn btn-primary mb-1" (click)="sortWordsWithVowels()">Submit</button>
-        <p class="">{{message}}</p>
+<div>
+    <h1 class="text-center mt-2">Words with Vowels</h1>
+    <hr>
+    <div class="row mt-4">
+        <div class="col">
+            <app-user-input (clickEvent)="table.clickEvent($event)"></app-user-input>
+        </div>
+        <div class="col">
+            <app-words-table #table></app-words-table>
+        </div>
     </div>
-    <div *ngIf="words.length>0">
-
-        <hr />
-        <table class="mx-auto table w-25">
-            <thead>
-                <tr>
-                    <th scope="col">Words with vowels</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let word of words">
-                    <td>{{word}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
 </div>
