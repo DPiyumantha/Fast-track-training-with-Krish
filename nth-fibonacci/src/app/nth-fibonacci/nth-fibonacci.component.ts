@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-nth-fibonacci',
   templateUrl: './nth-fibonacci.component.html',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NthFibonacciComponent implements OnInit {
   userInput: string = '';
-  nthFib: string = '';
+  nthFibNumber: string = '';
 
   constructor() { }
 
@@ -27,6 +27,6 @@ export class NthFibonacciComponent implements OnInit {
 
   printNthFibonacci() {
     let result = this.getNthFibonacci(this.userInput)
-    result == -1 ? this.nthFib = "Insert a number, zero or positive" : this.nthFib = result;
+    result == -1 ? this.nthFibNumber = "Insert a number, zero or positive" : this.nthFibNumber = result;
   }
 }

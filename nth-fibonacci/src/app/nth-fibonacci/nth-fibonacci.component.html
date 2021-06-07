@@ -1,7 +1,8 @@
 <div class="fibonacci form-group row col-3 mx-auto mt-5">
-    <h3 class="mx-auto mb-4">N th Fibonacci Number</h3>
+    <h3 class="mx-auto mb-4" >N th Fibonacci Number</h3>
     <input class="form-control mb-1" type="number" [(ngModel)]="userInput">
     <button class="btn btn-primary mb-1" (click)="printNthFibonacci()">Submit</button>
-    <h4>{{nthFib}}</h4>
+    <br/>
+    <app-nth-fibonacci-label [result]="nthFibNumber"></app-nth-fibonacci-label>
 
 </div>
