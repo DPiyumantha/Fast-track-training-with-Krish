@@ -6,14 +6,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./user-input.component.scss']
 })
 export class UserInputComponent implements OnInit {
-
+  regex=/[a-z]*[aeiou][a-z]*/gi
   inputText: string = '';
   result: {
     words: string[],
     error: boolean,
     errorMessage: string
   } = { words: [], error: false, errorMessage: '' }
-  vowels = ["a", "e", "i", "o", "u"];
   @Output() clickEvent: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
@@ -35,7 +34,7 @@ export class UserInputComponent implements OnInit {
         .toLowerCase()
         .replace(/[^a-zA-Z\s\d]/g, '')
         .split(" ")
-        .filter(word => this.isIncludingVowel(word))
+        .filter(word => word.match(this.regex))
         .sort())
       )
     }
@@ -48,7 +47,10 @@ export class UserInputComponent implements OnInit {
 
   onClick() {
     this.sortWordsWithVowels();
-    this.clickEvent.emit(this.result);
+    this.result.words.length<1?
+    this.clickEvent.emit({...this.result, error:true,errorMessage:"No words with vowels"}):
+    this.clickEvent.emit(this.result)
+    
 
   }
 
