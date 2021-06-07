@@ -40,11 +40,6 @@ export class UserInputComponent implements OnInit {
     }
   }
 
-  isIncludingVowel(word: string): boolean {
-    return this.vowels
-      .some(val => word.split('').includes(val))
-  }
-
   onClick() {
     this.sortWordsWithVowels();
     this.result.words.length<1?
