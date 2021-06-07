@@ -26,10 +26,12 @@ export class HomeComponent implements OnInit {
   checkPalindrome() {
 
     if (this.userInput.length < 1) { this.status = "Enter a valid text" } else {
-      let reversedWord = this.userInput.split('').reduce((prev, curr) => curr.concat(prev));
-      this.userInput.toLowerCase() === reversedWord.toLowerCase() ? 
+      let word=this.userInput.replace(/[^A-Za-z]/g,'');
+      let reversedWord = word.split('').reduce((prev, curr) => curr.concat(prev));
+      word.toLowerCase() === reversedWord.toLowerCase() ? 
       this.status = "It's a palindrome" : 
       this.status = "It's not a palindrome";
+      console.log(this.userInput,reversedWord)
     }
 
   }
