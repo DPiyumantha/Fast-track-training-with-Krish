@@ -1,5 +1,5 @@
 export interface BasicResult {
-    data:string,
+    result:string,
     error:boolean,
     errorMessage:string
 }

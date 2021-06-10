@@ -7,10 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./display-label.component.scss']
 })
 export class DisplayLabelComponent implements OnInit {
-@Input() result:BasicResult={data:'',error:false,errorMessage:''};
+@Input() message:string='loading..';
+@Input() word:string='';
+  @Input()
+  data!: BasicResult;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
