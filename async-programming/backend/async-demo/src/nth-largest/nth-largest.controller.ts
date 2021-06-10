@@ -14,7 +14,7 @@ export class NthLargestController {
       );
       return new ResponseObj(result, false, '');
     } catch (error) {
-      return new ResponseObj('', true, error.message);
+      return new ResponseObj('', true, error);
     }
   }
 }

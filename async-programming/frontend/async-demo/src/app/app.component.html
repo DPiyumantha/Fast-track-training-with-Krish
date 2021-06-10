@@ -1,4 +1,19 @@
-<button routerLink="/anagram">Anagram</button>
-<button routerLink="/repetitions">Repetitions</button>
-<button routerLink="/nth-largest">nth largest</button>
-<app-home></app-home>
+<div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+      <a class="navbar-brand" routerLink="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink="/anagram">Anagram</a>
+          <a class="nav-item nav-link" routerLink="/repetitions">Repetitions</a>
+          <a class="nav-item nav-link" routerLink="/nth-largest">nth largest</a>
+        </div>
+      </div>
+    </nav>
+    
+
+<div class="m-3"><router-outlet></router-outlet></div>
+</div>

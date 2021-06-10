@@ -17,6 +17,7 @@ data!:BasicResult;
   }
 
   nthLargest(){
+    //Using callback
     const arr = this.userInput.split(',').map(i=>i.trim());
     this._nthLargestService.getnthLargest(arr,this.n).subscribe(
       res=>this.data=<BasicResult>res

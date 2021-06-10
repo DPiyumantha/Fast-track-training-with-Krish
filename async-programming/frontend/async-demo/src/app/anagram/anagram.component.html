@@ -1,5 +1,7 @@
 <h3>Check for Anagram</h3>
-<input placeholder="First Word" [(ngModel)]="firstWord">
-<input placeholder="Second Word"  [(ngModel)]="secondWord">
-<button (click)=checkAnagram()>Submit</button>
+<div class="w-25">
+    <input placeholder="First Word" [(ngModel)]="firstWord" class="form-control">
+<input placeholder="Second Word"  [(ngModel)]="secondWord" class="form-control">
+<button (click)=checkAnagram() class="btn btn-primary">Submit</button>
+</div>
 <app-display-label [data]="result"></app-display-label>

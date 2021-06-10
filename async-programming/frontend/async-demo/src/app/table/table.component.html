@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Letter</th>
+        <th scope="col"># of repetitions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of items">
+        <td *ngFor="let j of i">{{j}}</td>
+      </tr>
+      
+    </tbody>
+  </table>

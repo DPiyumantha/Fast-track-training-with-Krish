@@ -9,6 +9,7 @@ import { RepetitionsComponent } from './repetitions/repetitions.component';
 import { NthLargestComponent } from './nth-largest/nth-largest.component';
 import { DisplayLabelComponent } from './display-label/display-label.component';
 import { FormsModule } from '@angular/forms';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     AnagramComponent,
     RepetitionsComponent,
     NthLargestComponent,
-    DisplayLabelComponent
+    DisplayLabelComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

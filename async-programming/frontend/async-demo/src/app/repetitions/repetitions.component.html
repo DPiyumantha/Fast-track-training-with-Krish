@@ -1,4 +1,10 @@
 <h3>Check for Letter Repetitions</h3>
-<input placeholder="Enter a word" [(ngModel)]="userInput">
-<button (click)="checkRepetitions()">Submit</button>
-<app-display-label [data]="data"></app-display-label>
+<div class="w-25">
+    <input placeholder="Enter a word" [(ngModel)]="userInput" class="form-control">
+<button (click)="checkRepetitions()" class="btn btn-primary">Submit</button>
+</div>
+
+<!-- <app-display-label [data]="data"></app-display-label> -->
+<div class="w-25">
+    <app-table *ngIf="data" [items]=data.result></app-table>
+</div>

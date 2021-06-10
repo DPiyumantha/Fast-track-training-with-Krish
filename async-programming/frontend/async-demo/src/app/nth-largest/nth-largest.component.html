@@ -1,6 +1,7 @@
-
 <h3>Check for n-th Largest in an Array</h3>
-<input placeholder="Comma seperated numbers" [(ngModel)]="userInput">
-<input placeholder="'n'"  [(ngModel)]="n">
-<button (click)=nthLargest()>Submit</button>
+<div class="w-25">
+    <input placeholder="Comma seperated numbers" [(ngModel)]="userInput" class="form-control">
+    <input placeholder="'n'" [(ngModel)]="n" class="form-control">
+    <button (click)=nthLargest() class="btn btn-primary">Submit</button>
+</div>
 <app-display-label [data]="data"></app-display-label>

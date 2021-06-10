@@ -16,8 +16,11 @@ data!:BasicResult;
   }
 
   checkRepetitions(){
+    //Using promise
     this._repetitionsService.checkAnagram(this.userInput)
-    .then(res=>this.data=<BasicResult>res)
+    .then((res)=>this.data=<BasicResult>res)
+    .then(()=>this.data={result:JSON.parse(this.data.result),errorMessage:this.data.errorMessage,error:this.data.error})
+    .then(()=>this.data.result=this.data.result.sort((a:any[],b:any[])=>a[0]-b[0]))
     .catch(console.log)
   }
 
