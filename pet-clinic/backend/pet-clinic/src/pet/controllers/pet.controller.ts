@@ -20,14 +20,14 @@ export class PetController {
   constructor(private petService: PetService) {}
 
   @Get()
-  getAllPets() {
-    return this.petService.getAllPets();
+  async getAllPets(): Promise<Pet[]> {
+    return await this.petService.getAllPets();
   }
 
-  // @Get(':id')
-  // getPetById(@Param('id') id: string): Pet {
-  //   return this.petService.getPetById(id);
-  // }
+  @Get(':id')
+  async getPetById(@Param('id') id: string): Promise<Pet> {
+    return await this.petService.getPetById(id);
+  }
 
   @Post()
   @UsePipes(ValidationPipe)
@@ -36,14 +36,17 @@ export class PetController {
     return await this.petService.createPet(petCreateDTO);
   }
 
-  // @Patch(':id')
-  // updatePet(@Body() petUpdateDTO: PetUpdateDTO, @Param('id') id: string): Pet {
-  //   petUpdateDTO.id = id;
-  //   return this.petService.updatePet(petUpdateDTO);
-  // }
+  @Patch(':id')
+  async updatePet(
+    @Body() petUpdateDTO: PetUpdateDTO,
+    @Param('id') id: string,
+  ): Promise<Pet> {
+    petUpdateDTO.id = id;
+    return await this.petService.updatePet(petUpdateDTO);
+  }
 
-  // @Delete(':id')
-  // deletePet(@Param('id') id: string) {
-  //   this.petService.deletePetById(id);
-  // }
+  @Delete(':id')
+  deletePet(@Param('id') id: string) {
+    this.petService.deletePetById(id);
+  }
 }

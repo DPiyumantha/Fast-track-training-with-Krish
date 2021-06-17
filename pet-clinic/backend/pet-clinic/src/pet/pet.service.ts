@@ -8,31 +8,24 @@ import { Pet } from './schemas/Pet.schema';
 export class PetService {
   constructor(private petRepo: PetRepository) {}
   private pets: Pet[] = [];
-  getAllPets(): Pet[] {
-    return this.pets;
+
+  async getAllPets(): Promise<Pet[]> {
+    return await this.petRepo.findAll();
   }
 
-//   getPetById(id: string): Pet {
-//     const pet = this.pets.find((pet) => pet.id === id);
-//     if (!pet) throw new NotFoundException(`Pet for id ${id} does not exists`);
-//     return pet;
-//   }
+  async getPetById(id: string): Promise<Pet> {
+    return await this.petRepo.findOne(id);
+  }
 
   async createPet(petCreateDTO: PetCreateDTO): Promise<Pet> {
     return await this.petRepo.create(petCreateDTO);
   }
 
-//   updatePet(petUpdateDTO: PetUpdateDTO): Pet {
-//     const { id, name, type, breed, weight } = petUpdateDTO;
-//     const oldRecord = this.getPetById(id);
-//     oldRecord.name = name;
-//     oldRecord.type = type;
-//     oldRecord.breed = breed;
-//     oldRecord.weight = weight;
-//     return oldRecord;
-//   }
+  async updatePet(petUpdateDTO: PetUpdateDTO): Promise<Pet> {
+    return await this.petRepo.update(petUpdateDTO);
+  }
 
-//   deletePetById(id) {
-//     this.pets = this.pets.filter((pet) => pet.id != id);
-//   }
+  async deletePetById(id): Promise<boolean> {
+    return await this.petRepo.deleteOne(id);
+  }
 }
