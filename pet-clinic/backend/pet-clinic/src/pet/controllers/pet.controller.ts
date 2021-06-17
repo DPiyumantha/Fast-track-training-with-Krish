@@ -14,6 +14,7 @@ import { Pet } from '../schemas/Pet.schema';
 import { PetDataValidatorPipe } from 'src/pipes/pet-data-validator.pipe';
 import { PetCreateDTO } from '../DTOs/Pet.create.dto';
 import { PetUpdateDTO } from '../DTOs/Pet.update.dto';
+import { PetType } from '../Pet.enum';
 
 @Controller('pets')
 export class PetController {
@@ -22,6 +23,11 @@ export class PetController {
   @Get()
   async getAllPets(): Promise<Pet[]> {
     return await this.petService.getAllPets();
+  }
+
+  @Get('types')
+  getPetEnum(): any[] {
+    return Object.values(PetType);
   }
 
   @Get(':id')
