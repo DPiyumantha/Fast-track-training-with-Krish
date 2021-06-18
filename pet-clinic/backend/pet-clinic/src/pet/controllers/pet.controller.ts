@@ -1,3 +1,4 @@
+import { HttpExceptionFilter } from './../global-error-handler.service';
 import { PetService } from '../pet.service';
 import {
   Body,
@@ -9,6 +10,7 @@ import {
   Param,
   Patch,
   Post,
+  UseFilters,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -19,6 +21,7 @@ import { PetUpdateDTO } from '../DTOs/Pet.update.dto';
 import { PetType } from '../Pet.enum';
 
 @Controller('pets')
+@UseFilters(new HttpExceptionFilter())
 export class PetController {
   constructor(private petService: PetService) {}
 
