@@ -4,6 +4,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  NotFoundException,
   Param,
   Patch,
   Post,
@@ -52,7 +54,9 @@ export class PetController {
   }
 
   @Delete(':id')
-  deletePet(@Param('id') id: string) {
-    this.petService.deletePetById(id);
+  @HttpCode(204)
+  async deletePet(@Param('id') id: string) {
+    const res = await this.petService.deletePetById(id);
+    if (!res) throw new NotFoundException('Record not found');
   }
 }

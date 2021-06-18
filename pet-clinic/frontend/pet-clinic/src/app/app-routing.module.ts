@@ -1,3 +1,4 @@
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { OwnerListComponent } from './owner/owner-list/owner-list.component';
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {component:PetFormComponent,path:'pets/addnew'},
   {component:PetListComponent,path:'pets'},
   {component:OwnerListComponent,path:'owners'},
-  {component:PetFormComponent,path:'pets/edit'},];
+  {component:PetFormComponent,path:'pets/edit'},
+  {component:LandingPageComponent,path:''},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

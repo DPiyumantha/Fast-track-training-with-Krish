@@ -11,31 +11,32 @@ import { Router } from '@angular/router';
 })
 export class PetFormComponent implements OnInit {
   petTypes!: string[];
-
   title: string = 'Add a Pet';
-  // newPet: Pet={name:"",type:'',breed:'',weight:0};
   newPet: any = {};
-  constructor(private _petService: PetService, private toastr: ToastrService, private router: Router) { }
+
+  constructor(
+    private _petService: PetService, 
+    private toastr: ToastrService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this._petService.getPetTypes().subscribe((data: string[]) => {
       this.petTypes = data.sort();
     });
-    this._petService.petObservable.subscribe(val => { this.newPet = val.data; if (val.updating) { this.title = "Update" } })
+    this._petService.petObservable
+    .subscribe(val => { this.newPet = val.data; if (val.updating) { this.title = "Update" } })
   }
 
   onSubmit(form: any) {
-    console.log(this.newPet._id)
-
-
     if (this.title === "Update") {
       this._petService.updatePet(this.newPet).toPromise()
-        .then((data: any) => this.toastr.success(`${data.name}`, "Successfully updated!"))
+        .then((data: any) => { this.toastr.success(`${data.name}`, "Successfully updated!") })
         .then(() => {
-          this.newPet = {};
+          this.newPet = {}
           form.reset()
         })
         .then(() => this.router.navigate(['/pets']))
+        .catch(() => this.toastr.success("Record not updated", "Something went wrong!"))
     } else {
       this._petService.createPet(this.newPet).toPromise()
         .then((data: any) => this.toastr.success(`${data.name}`, "Successfully saved!"))
@@ -43,6 +44,7 @@ export class PetFormComponent implements OnInit {
           this.newPet = {};
           form.reset()
         })
+        .catch(() => this.toastr.success("Record not saved", "Something went wrong!"))
     }
   }
 
