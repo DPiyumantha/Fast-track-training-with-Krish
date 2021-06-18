@@ -1,3 +1,4 @@
+import { PetCommunicationService } from './../../services/pet-communication.service';
 import { PetService } from './../../services/pet.service';
 import { Component, OnInit } from '@angular/core';
 import { Pet } from 'src/app/model/Pet.model';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class PetListComponent implements OnInit {
   pets!: Pet[];
   petToDelete!: Pet;
-  constructor(private _petService: PetService, private toastr:ToastrService, private router:Router) { }
+  constructor(private _petService: PetService, private _petCommunication: PetCommunicationService, private toastr:ToastrService, private router:Router) { }
 
   ngOnInit(): void {
     this._petService.getAllPets().subscribe((data: Pet[]) => {
@@ -22,10 +23,10 @@ export class PetListComponent implements OnInit {
   setDeleteItem(pet: Pet) {
     this.petToDelete = pet;
   }
-
+  // this.toastr.info(`${this.petToDelete.name}'s record removed`,"Successfully deleted")
   deletePet() {
     this._petService.deletePet(this.petToDelete._id).toPromise()
-    .then(() => this.toastr.info(`${this.petToDelete.name}'s record removed`,"Successfully deleted"))
+    .then((data) => {if(data.status==204)this.toastr.info(`${this.petToDelete.name}'s record removed`,"Successfully deleted")})
     .then(()=>this.pets=this.pets.filter(item=>item._id!=this.petToDelete._id))
     .then(()=>this.petToDelete._id='-1')
     .catch(err=>this.toastr.info(`Record not removed`,"Something went wrong"))
@@ -33,11 +34,11 @@ export class PetListComponent implements OnInit {
 
   editPet(pet:Pet){
     this.router.navigate([`pets/edit`]);
-    this._petService.updateNewPet({updating:true,data:pet})
+    this._petCommunication.updateNewPet({updating:true,data:pet})
   }
   addPet(){
     this.router.navigate([`pets/addnew`]);
-    this._petService.updateNewPet({updating:false,data:{}})
+    this._petCommunication.updateNewPet({updating:false,data:{}})
   }
 
 

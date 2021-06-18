@@ -16,28 +16,16 @@ export class PetFormComponent implements OnInit {
 
   constructor(
     private _petService: PetService, 
-    private toastr: ToastrService, 
-    private router: Router) { }
+    private toastr: ToastrService,) { }
 
   ngOnInit(): void {
     this._petService.getPetTypes().subscribe((data: string[]) => {
       this.petTypes = data.sort();
     });
-    this._petService.petObservable
-    .subscribe(val => { this.newPet = val.data; if (val.updating) { this.title = "Update" } })
   }
 
   onSubmit(form: any) {
-    if (this.title === "Update") {
-      this._petService.updatePet(this.newPet).toPromise()
-        .then((data: any) => { this.toastr.success(`${data.name}`, "Successfully updated!") })
-        .then(() => {
-          this.newPet = {}
-          form.reset()
-        })
-        .then(() => this.router.navigate(['/pets']))
-        .catch(() => this.toastr.success("Record not updated", "Something went wrong!"))
-    } else {
+    
       this._petService.createPet(this.newPet).toPromise()
         .then((data: any) => this.toastr.success(`${data.name}`, "Successfully saved!"))
         .then(() => {
@@ -45,7 +33,7 @@ export class PetFormComponent implements OnInit {
           form.reset()
         })
         .catch(() => this.toastr.success("Record not saved", "Something went wrong!"))
-    }
+    
   }
 
 }
